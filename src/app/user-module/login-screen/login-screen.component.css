@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+
+.titulo {
+
+  font-size: 76px;
+  font-weight: 400;
+  margin-bottom: 16px;
+
+}
+
+
+
+.robo-image {
+  
+  background-image: url("/imgs/Rectangle\ 1\ \(1\).png");
+  background-size: cover;
+  background-position: 0px -100px;
+
+  width: 50vw;
+  /*50% da largura do monitor*/
+  height: 100vh;
+
+
+}
+
+.page-container {
+
+  display: flex;
+  /* um ao lado do outro */
+
+}
+
+.login-container {
+
+
+  width: 50vw;
+  /*50% da largura do monitor*/
+  height: 100vh;
+
+  display: flex;
+  /* ativar o flex */
+  flex-direction: column;
+  /* muda o flex para colunas */
+  align-items: center;
+  /* centralizar horizontalmente */
+  justify-content: center;
+  /* centralizar verticalmente */
+
+}
+
+.classe {
+  /*com hashtag antes */
+
+}
+
+#id {
+  /* sem nenhum prefixo */
+
+}
+
+img {
+  /*tags, sem nenhum prefixo */
+
+}
+
+.login-container img {
+
+
+
+  height: 60PX;
+
+
+}
+
+.inpt {
+
+  padding: 18px;
+  /* margem interna */
+  background-color: #f7f9fb;
+  /* defina a cor de fundo */
+  width: 377px;
+  /* define a largura */
+  border: 1px solid #ccc;
+  /* definhe a borda */
+  border-radius: 10px;
+  /* define o arredondamento da borda */
+  margin-bottom: 16px;
+  /* define a distancia de um botao para o outro */
+
+
+}
+
+.button {
+
+  cursor: pointer;
+  background-color: #1c1c1c;
+  color: #f7f9fb;
+  border: none;
+  width: 377px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 18px;
+  font-size: 18px;
+
+
+}
