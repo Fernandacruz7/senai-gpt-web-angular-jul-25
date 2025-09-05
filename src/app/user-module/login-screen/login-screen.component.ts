@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { application } from 'express';
+import { json } from 'stream/consumers';
 
 @Component({
   selector: 'app-login-screen',
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './login-screen.component.html',
   styleUrl: './login-screen.component.css'
 })
@@ -18,9 +20,51 @@ export class LoginScreenComponent {
     // cria o campo obrigatorio de senha
 
     this.loginForm = this.fb.group({
-      email: ["",[Validators.required]],
-      password: ["",[Validators.required]]
+      email: ["", [Validators.required]],
+      password: ["", [Validators.required]]
     });
+
+  }
+
+  async onLoginClick() {
+
+
+    console.log("Email", this.loginForm.value.email);
+    console.log("password", this.loginForm.value.password);
+
+    if (this.loginForm.value.email == "") {
+      alert("Preencha o email.");
+      return;
+    }
+
+
+    if (this.loginForm.value.senha == "") {
+      alert("Preencha a senha.");
+      return;
+    }
+
+    let response = await fetch("https://senai-gpt-api.azurewebsites.net/login", {
+      method: "POST",
+      headers: {
+
+        "content-type": "application/json"
+      },
+      body: JSON.stringify({
+        email: this.loginForm.value.email,
+        password: this.loginForm.value.password
+      })
+    });
+
+    console.log("STATUS CODE", response.status)
+
+    if (response.status >= 200 && response.status <= 299) {
+
+      alert("Credencial Correta");
+    } else {
+
+      alert("Credencial Incorreta");
+
+    }
 
   }
 
