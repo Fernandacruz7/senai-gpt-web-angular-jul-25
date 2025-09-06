@@ -1,0 +1,193 @@
+* {
+
+margin: 0px;
+padding: 0px;
+box-sizing: border-box;
+font-family: inter;
+
+}
+
+.container {
+
+display: flex;
+
+}
+
+.left-panel {
+
+    height: 100vh;
+    width: 20vw;
+    background-color: white;
+    flex-direction: column;
+    justify-content: space-between;
+    display: flex;
+
+}
+
+.central-panel {
+
+height: 100vh;
+width: 80vw;
+background-color: white;
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 10px;
+
+
+
+}
+
+.top {
+
+width: 100%;
+min-height: 300px;
+background-color: white;
+display: flex;
+flex-direction: column;
+align-items: center;
+font-size: 76px;
+padding: 18px;
+
+
+
+}
+
+.bottom {
+
+width: 100%;
+min-height: 300px;
+background-color: white;
+flex-direction: column;
+align-items: center;
+display: flex;
+
+}
+
+.novo-botao {
+
+width: 242px;
+height: 40px;
+background-color: black;
+color: white;
+margin-top: 20px;
+border-radius: 10px;
+padding: 10px;
+
+}
+
+.ponto {
+width: 242px;
+height: 48px;
+display: flex;
+flex-direction: column;
+font-size: 20px;
+margin-top: 20px;
+border-radius: 10px;
+padding: 10px;
+border: none;
+
+}
+
+.logo {
+
+width: 242px;
+height: 48px;
+display: flex;
+flex-direction: column;
+font-size: 14px;
+margin-top: 20px;
+border-radius: 10px;
+padding: 10px;
+align-items: center;
+
+
+}
+
+.titulo {
+
+width: 446px;
+height: 101px;
+display: flex;
+font-size: 68.95px;
+margin-top: 260px;
+margin-bottom: 16px;
+
+}
+
+.colunas {
+
+    justify-content: center;
+    align-items: center;
+    justify-content: flex-end;
+    display: flex;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    margin-right: 40px;
+    border-radius: 16px;
+
+}
+
+.ponto {
+
+width: 242px;
+height: 48px;
+font-size: 14px;
+margin-top: 12px;
+display: flex;
+margin-bottom: 14px;
+justify-content: flex-end;
+padding: 10px;
+border: none;
+}
+
+.texto {
+
+width: 242px;
+height: 48px;
+font-size: 14px;
+margin-top: 12px;
+display: flex;
+margin-bottom: 14px;
+justify-content: flex-end;
+padding: 10px;
+border: none;
+border-radius: 10px;
+margin-right: 40px;
+background-color: #F7F9FB
+
+}
+
+.input-container {
+
+margin-top: auto;
+margin-bottom: 40px;
+display: flex;
+align-items: center;
+padding: 16px;
+background-color: #e6e6e6;
+border-radius: 16px;
+
+}
+
+.input-container input {
+
+background-color: transparent;
+border: none;
+width: 400px;
+outline: none;
+
+}
+
+.input-container i {
+
+margin-right: 10px;
+
+}
+
+.send-button {
+
+    color: #9fa0a2;
+    margin-right: 0px !important;
+}

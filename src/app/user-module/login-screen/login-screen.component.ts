@@ -14,6 +14,11 @@ export class LoginScreenComponent {
 
   loginForm: FormGroup;
 
+  emailErrorMessage: string;
+  errorPassword: string;
+  
+
+
   constructor(private fb: FormBuilder) {
     // quando a tela iniciar 
     // cria o campo obrigatorio de email
@@ -24,6 +29,9 @@ export class LoginScreenComponent {
       password: ["", [Validators.required]]
     });
 
+    // inicia com uma string vazia
+    this.emailErrorMessage = "";
+    this.errorPassword = "";
   }
 
   async onLoginClick() {
@@ -33,15 +41,17 @@ export class LoginScreenComponent {
     console.log("password", this.loginForm.value.password);
 
     if (this.loginForm.value.email == "") {
-      alert("Preencha o email.");
+      // alert("Preencha o email.");
+      this.emailErrorMessage = "O campo de email e obrigatorio. ";
+    
+    }
+
+    // alert("Preencha a senha.");
+    if (this.loginForm.value.password == "") {
+      this.errorPassword = "Senha Incorreta";
       return;
     }
 
-
-    if (this.loginForm.value.senha == "") {
-      alert("Preencha a senha.");
-      return;
-    }
 
     let response = await fetch("https://senai-gpt-api.azurewebsites.net/login", {
       method: "POST",
@@ -59,10 +69,10 @@ export class LoginScreenComponent {
 
     if (response.status >= 200 && response.status <= 299) {
 
-      alert("Credencial Correta");
+      //alert("Credencial Correta");
     } else {
 
-      alert("Credencial Incorreta");
+      //alert("Credencial Incorreta");
 
     }
 

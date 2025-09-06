@@ -12,3 +12,23 @@
 
 
 }
+
+.error-message {
+
+  color: red;
+  font-size: 12px;
+  transform: translateY(-12px);
+  translate: (-90px);
+
+}
+
+.error-password {
+
+  color: red;
+  font-size: 12px;
+  transform: translateY(-12px);
+  translate: (-90px);
+
+
+
+}
