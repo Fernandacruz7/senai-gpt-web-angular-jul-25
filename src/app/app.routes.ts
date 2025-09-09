@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { LoginScreenComponent } from './user-module/login-screen/login-screen.component';
 import { ChatScreenComponent } from './chat-screen/chat-screen.component';
+import { authGuard } from './auth.guard';
 
 export const routes: Routes = [
     {
@@ -10,19 +11,18 @@ export const routes: Routes = [
 
     {
 
-        path: "" ,
-
+        path: "",
         loadComponent: () => LoginScreenComponent
-            
-    
+
+
     },
 
     {
 
- path: "chat" ,
+        path: "chat",
+        loadComponent: () => ChatScreenComponent,
+        canActivate: [authGuard]
 
-        loadComponent: () => ChatScreenComponent
-            
 
 
     }

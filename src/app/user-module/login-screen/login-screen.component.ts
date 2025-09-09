@@ -1,3 +1,5 @@
+"use client";
+
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { application } from 'express';
