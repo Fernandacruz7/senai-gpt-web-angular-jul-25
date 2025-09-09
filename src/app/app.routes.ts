@@ -1,32 +1,20 @@
 import { Routes } from '@angular/router';
-import { LoginScreenComponent } from './user-module/login-screen/login-screen.component';
-import { ChatScreenComponent } from './chat-screen/chat-screen.component';
+import { LoginScreen } from './user-module/login-screen/login-screen';
+import { ChatScreen } from './chat-screen/chat-screen';
 import { authGuard } from './auth.guard';
 
 export const routes: Routes = [
     {
         path: "login",
-        loadComponent: () => LoginScreenComponent
+        loadComponent: () => LoginScreen
     },
-
     {
-
         path: "",
-        loadComponent: () => LoginScreenComponent
-
-
+        loadComponent: () => LoginScreen
     },
-
     {
-
         path: "chat",
-        loadComponent: () => ChatScreenComponent,
+        loadComponent: () => ChatScreen,
         canActivate: [authGuard]
-
-
-
     }
-
 ];
-
-

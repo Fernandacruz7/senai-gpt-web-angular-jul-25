@@ -1,34 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
-* {
-  /* Todos os elementos */
-  padding: 0px;
-  /*margem interna de um elemento */
-  margin: 0px;
-  /*margem externa de um elemento */
-  box-sizing: border-box;
-  /*muda a estrutura de espacamentos */
-  font-family: "inter"
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+* { /* Todos os elementos */
 
-
-}
-
-.error-message {
-
-  color: red;
-  font-size: 12px;
-  transform: translateY(-12px);
-  translate: (-90px);
-
-}
-
-.error-password {
-
-  color: red;
-  font-size: 12px;
-  transform: translateY(-12px);
-  translate: (-90px);
-
-
+    padding: 0px; /* Margem interna */
+    margin: 0px; /* Margem externa */
+    box-sizing: border-box; /* Muda a estrutura de espaçamentos */
+    font-family: "Inter";
 
 }
