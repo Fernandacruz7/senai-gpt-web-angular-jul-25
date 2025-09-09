@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { application } from 'express';
 import { json } from 'stream/consumers';
@@ -16,10 +16,8 @@ export class LoginScreenComponent {
 
   emailErrorMessage: string;
   errorPassword: string;
-  
 
-
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private cd: ChangeDetectorRef) {
     // quando a tela iniciar 
     // cria o campo obrigatorio de email
     // cria o campo obrigatorio de senha
@@ -43,7 +41,7 @@ export class LoginScreenComponent {
     if (this.loginForm.value.email == "") {
       // alert("Preencha o email.");
       this.emailErrorMessage = "O campo de email e obrigatorio. ";
-    
+
     }
 
     // alert("Preencha a senha.");
@@ -69,12 +67,28 @@ export class LoginScreenComponent {
 
     if (response.status >= 200 && response.status <= 299) {
 
+      let json = await response.json();
+
+      console.log("JSON", json);
+
+      let meuToken = json.accessToken;
+      let userId = json.user.id;
+
+      localStorage.setItem("meuToken", meuToken);
+      localStorage.setItem("meuId", userId);
+
+      window.location.href = "chat";
+      
       //alert("Credencial Correta");
     } else {
 
       //alert("Credencial Incorreta");
 
     }
+
+
+
+    this.cd.detectChanges(); //Forcar uma atualizacao da tela.
 
   }
 
