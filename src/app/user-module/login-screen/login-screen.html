@@ -2,29 +2,29 @@
 
 <main class="page-container"> <!-- Caixa maior -->
 
-    <div class="robo-image">
-    
-    <div class="login-container" [formGroup]="loginForm">
+    <div class="robo-image"></div>
 
-        <img src="imgs/Chat.png" alt="Logo do SenaiGPT.">
+        <div class="login-container" [formGroup]="loginForm">
 
-        <h1 class="titulo">Login</h1>
+            <img src="imgs/Chat.png" alt="Logo do SenaiGPT.">
 
-        <input class="inpt" type="email" placeholder="Insira o e-mail" formControlName="email">
-        <span class="error-message">{{ emailErrorMessage }}</span>
+            <h1 class="titulo">Login</h1>
 
-        <!-- <fa-icon [icon]="faCoffe"/> -->
+            <input class="inpt" type="email" placeholder="Insira o e-mail" formControlName="email">
+            <span class="error-message">{{emailErrorMessage}}</span>
 
-        <input class="inpt" type="password" placeholder="Insira a senha" formControlName="password" (keydown.enter)="onLoginClick()">
-        <span class="error-message">{{ passwordErrorMessage }}</span>
+            <!-- <fa-icon [icon]="faCoffe"/> -->
 
-        <button class="btn" (click)="onLoginClick()">Entrar</button>
+            <input class="inpt" type="password" placeholder="Insira a senha" formControlName="password"
+                (keydown.enter)="onLoginClick()">
+            <span class="error-message">{{passwordErrorMessage}}</span>
 
-        <span class="success-status-message">{{ successStatusMessage }}</span>
-        <span class="error-status-message">{{ errorStatusMessage }}</span>
+            <button class="btn" (click)="onLoginClick()">Entrar</button>
 
-    </div>
+            <span class="success-status-message">{{ successStatusMessage }}</span>
+            <span class="error-status-message">{{ errorStatusMessage }}</span>
 
+        </div>
 </main>
 
-<footer></footer>
+    <footer></footer>

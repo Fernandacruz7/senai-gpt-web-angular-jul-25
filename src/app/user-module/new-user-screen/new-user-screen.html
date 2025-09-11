@@ -1,4 +1,3 @@
-
 <header></header>
 
 <main class="page-container"> <!-- Caixa maior -->
@@ -9,17 +8,16 @@
 
         <img src="imgs/Chat.png" alt="Logo do SenaiGPT.">
 
-        <h1 class="titulo">Login</h1>
+        <h1 class="titulo">NOVO USUARIO</h1>
 
+        <input class="inpt" type="usuario" placeholder="Insira o nome do usuario" formControlName="usuario">
         <input class="inpt" type="email" placeholder="Insira o e-mail" formControlName="email">
-        
-
-        <!-- <fa-icon [icon]="faCoffe"/> -->
-
-        <input class="inpt" type="password" placeholder="Insira a senha">
-       
+        <input class="inpt" type="senha" placeholder="Insira a senha" formControlName="senha">
+        <input class="inpt" type="senha" placeholder="confirme a senha" formControlName="senha">
 
         <button class="btn">Entrar</button>
+
+         <a href="/login" class="link-login">Clique Aqui para fazer o login</a>
 
 
     </div>
