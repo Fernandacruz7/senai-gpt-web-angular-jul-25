@@ -2,22 +2,30 @@
 
 <main class="page-container"> <!-- Caixa maior -->
 
-    <div class="robo-image">
-    </div>
-    <div class="login-container">
+    <div class="robo-image"></div>
+
+    <div class="login-container" [formGroup]="newUser">
 
         <img src="imgs/Chat.png" alt="Logo do SenaiGPT.">
 
         <h1 class="titulo">NOVO USUARIO</h1>
 
-        <input class="inpt" type="usuario" placeholder="Insira o nome do usuario" formControlName="usuario">
+        <input class="inpt" type="usuario" placeholder="Insira o nome do usuario" formControlName="username">
+        <span class="error-message">{{emailErrorMessage}}</span>
+
         <input class="inpt" type="email" placeholder="Insira o e-mail" formControlName="email">
-        <input class="inpt" type="senha" placeholder="Insira a senha" formControlName="senha">
-        <input class="inpt" type="senha" placeholder="confirme a senha" formControlName="senha">
+        <span class="error-message">{{passwordErrorMessage}}</span>
 
-        <button class="btn">Entrar</button>
+        <input class="inpt" type="senha" placeholder="Insira a senha" formControlName="password">
+        <span class="error-message">{{successStatusMessage}}</span>
 
-         <a href="/login" class="link-login">Clique Aqui para fazer o login</a>
+        <input class="inpt" type="senha" placeholder="confirme a senha" formControlName="password">
+        <span class="error-message">{{ errorStatusMessage}}</span>
+
+
+        <button class="btn" (click)="onCadastroClick()">Entrar</button>
+
+        <a href="/login" class="link-login">Clique Aqui para fazer o login</a>
 
 
     </div>
