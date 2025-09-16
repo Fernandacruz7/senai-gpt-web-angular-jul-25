@@ -7,20 +7,11 @@
 
             <button class="btn-new-chat">+ New chat</button>
 
-            <button class="btn-chat">
+            <button *ngFor="let chat of chats; " class="btn-chat">
                 <i class="fa-regular fa-message"></i>
-                AI Chat Tool Ethics
+                {{chat.chatTitle}}
             </button>
 
-            <button class="btn-chat">
-                <i class="fa-regular fa-message"></i>
-                AI Chat Tool Impact Writing
-            </button>
-            
-            <button class="btn-chat">
-                <i class="fa-regular fa-message"></i>
-                New chat
-            </button>
 
         </div>
 
