@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ChangeDetectorRef, Component } from '@angular/core';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { firstValueFrom } from 'rxjs';
 
 interface IChat {
@@ -21,7 +22,7 @@ interface IMessage {
 
 @Component({
   selector: 'app-chat-screen',
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './chat-screen.html',
   styleUrl: './chat-screen.css'
 })
@@ -29,7 +30,8 @@ export class ChatScreen {
 
   chats: IChat[];
   chatSelecionado: IChat;
-  mensagens: IMessage[]; 
+  mensagens: IMessage[];
+  mensagemUsuario = new FormControl("");
 
   constructor(private http: HttpClient, private cd: ChangeDetectorRef) { // constroi a classe
     // iniciacao de variaveis...
@@ -58,7 +60,10 @@ export class ChatScreen {
       }
     }));
 
+    console.log("Chats", response);
+
     if (response) {
+
       this.chats = response as [];
     } else {
 
@@ -91,7 +96,71 @@ export class ChatScreen {
 
     this.mensagens = response as IMessage[];
 
+    this.cd.detectChanges();
+
   }
+
+  async enviarMensagem() {
+
+    let novaMensagemUsuario = {
+
+      chatId: this.chatSelecionado.id,
+      UserId: localStorage.getItem("meuId"),
+      text: this.mensagemUsuario.value
+
+    };
+
+    //salva a mensagem no banco de dados
+    let novaMensagemUsuarioResponse = await firstValueFrom(this.http.post("https://senai-gpt-api.azurewebsites.net/messages", novaMensagemUsuario, {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + localStorage.getItem("meuToken")
+
+
+      }
+    }));
+
+    //atualiza as mensagens da tela
+    await this.onChatClick(this.chatSelecionado);
+
+    // enviar a mensagem do usuario para IA responder 
+    let respostaIAResponse = await firstValueFrom(this.http.post("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent", {
+      "contents": [
+        {
+          "parts": [
+            {
+              "text": this.mensagemUsuario.value
+            }
+          ]
+        }
+      ] 
+   }, {
+    headers: {
+      "Content-Type": "application/json",
+      "X-goog-api-key": "AIzaSyDV2HECQZLpWJrqCKEbuq7TT5QPKKdLOdo"
+    }
+   })) as any;
+
+   let novaRespostaIA = {
+
+    chatId: this.chatSelecionado.id,
+    userId: "chatbot",
+    text: respostaIAResponse.candidates[0].content.parts[0].text
+   }
+
+   // salva a resposta da IA no banco de dadoss
+    let novaRespostaIAResponse = await firstValueFrom(this.http.post("https://senai-gpt-api.azurewebsites.net/messages", novaRespostaIA, {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + localStorage.getItem("meuToken")
+      }
+    }));
+
+    //atualiza as mensagens da tela
+    await this.onChatClick(this.chatSelecionado);
+
+  }
+
 }
 
 
