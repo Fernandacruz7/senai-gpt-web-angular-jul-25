@@ -64,9 +64,9 @@
 .btn-chat {
 
     width: 100%;
-    background-color: transparent;
+    background-color: rgba(241, 239, 239, 0.41);
     padding: 10px;
-    color: black;
+    color:black;
     border: none;
     margin-bottom: 10px;
 
@@ -206,3 +206,41 @@
   background: #000;
 
 }
+
+::ng-deep body.dark-mode .left-panel {
+
+    background-color: black !important;
+    color: white;
+
+}
+
+::ng-deep body.dark-mode .btn-chat {
+
+ 
+ color: white;
+ background-color: #000;
+}
+
+::ng-deep body.dark-mode .central-panel {
+
+ background-color: black !important;
+ color: white;
+}
+
+::ng-deep body.dark-mode .dicas-item p {
+
+ background-color: black !important;
+ color: white;
+}
+
+::ng-deep body.dark-mode .btn-new-chat {
+
+ background-color: white !important;
+ color: black;
+}
+
+::ng-deep body.dark-mode .logo {
+
+    background-image: url("/imgs/Chat (2).png") !important;
+}
+
