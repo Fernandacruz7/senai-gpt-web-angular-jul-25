@@ -42,7 +42,6 @@ Base URL: `https://senai-gpt-api.azurewebsites.net`
 - `POST /users` – cadastro de usuário
 - `GET /chats`, `POST /chats`, `DELETE /chats/:id`
 - `GET /messages?chatId=...`, `POST /messages`, `DELETE /messages/:id`
-- `POST /chat-completion` – resposta da IA
 
 ## Requisitos
 
@@ -86,7 +85,6 @@ Os artefatos serão gerados em `dist/` conforme `angular.json`.
 - `src/app/user-module/login-screen/` – tela de login
 - `src/app/user-module/new-user-screen/` – tela de cadastro
 - `src/app/chat-module/chat-screen/` – tela do chat e `chat-service.ts`
-- `src/app/interfaces/gemini-response.ts` – tipos da resposta da IA
 
 ## Observações
 
