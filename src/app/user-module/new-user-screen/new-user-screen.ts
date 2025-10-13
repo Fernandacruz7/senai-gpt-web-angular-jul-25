@@ -78,7 +78,7 @@ export class NewuserScreen {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        username: this.newUser.value.username,
+        name: this.newUser.value.username,
         email: this.newUser.value.email,
         password: this.newUser.value.password
       })

@@ -12,8 +12,6 @@
 
     background-image: url("/imgs/up.png");
     background-size: cover;
-    background-position: 0px -946px;
-
     width: 50vw;
     /* 50% da largura do monitor */
     height: 100vh;
